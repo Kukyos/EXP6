@@ -1,4 +1,4 @@
-from atm import ATM
+from atm import ATM, MIN_WITHDRAWAL
 
 def display_menu():
     print("\n===== ATM =====")
@@ -68,7 +68,10 @@ def main():
                 print(f"${amount:.2f} withdrawn")
                 print(f"New balance: ${atm.get_balance(account_id):.2f}")
             else:
-                print("Withdrawal failed")
+                if account_id in atm.get_accounts() and amount < MIN_WITHDRAWAL:
+                    print(f"Minimum withdrawal amount is ${MIN_WITHDRAWAL:.2f}")
+                else:
+                    print("Withdrawal failed")
         
         elif choice == '5':
             account_id = input("Account ID: ")

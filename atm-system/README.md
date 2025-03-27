@@ -7,6 +7,7 @@ A simple ATM system that stores account data in a text file.
 - **Balance Operations**: Deposit and withdraw funds with validation
 - **Transaction History**: Record and display all account activities
 - **Data Persistence**: Store all data in a JSON text file (accounts.txt)
+- **Withdrawal Limits**: Minimum withdrawal amount of Rs 500
 
 ## Implementation
 The system uses a Python-based implementation with three main components:

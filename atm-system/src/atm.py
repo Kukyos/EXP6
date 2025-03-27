@@ -4,6 +4,7 @@ from datetime import datetime
 from typing import Dict, List, Optional
 
 DATA_FILE = "accounts.txt"
+MIN_WITHDRAWAL = 500  # Minimum withdrawal amount in Rs
 
 class ATM:
     def __init__(self):
@@ -49,6 +50,8 @@ class ATM:
     def withdraw(self, account_id: str, amount: float) -> bool:
         if account_id not in self._accounts or amount <= 0:
             return False
+        if amount < MIN_WITHDRAWAL:
+            return False  # Amount below minimum withdrawal limit
         if amount > self._accounts[account_id]["balance"]:
             return False
         

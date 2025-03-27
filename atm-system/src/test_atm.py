@@ -1,6 +1,6 @@
 import os
 import json
-from atm import ATM, DATA_FILE
+from atm import ATM, DATA_FILE, MIN_WITHDRAWAL
 
 def setup():
     """Setup for testing - remove test data file if exists."""
@@ -29,34 +29,38 @@ def test_atm():
     assert atm.get_balance("user1") == 1500
     
     # Test withdrawal
-    assert atm.withdraw("user1", 200) == True
-    assert atm.get_balance("user1") == 1300
+    assert atm.withdraw("user1", 500) == True  # Minimum withdrawal amount
+    assert atm.get_balance("user1") == 1000
+    
+    # Test below minimum withdrawal
+    assert atm.withdraw("user1", 200) == False  # Below minimum withdrawal
+    assert atm.get_balance("user1") == 1000
     
     # Test invalid withdrawal (too much)
     assert atm.withdraw("user1", 2000) == False
-    assert atm.get_balance("user1") == 1300
+    assert atm.get_balance("user1") == 1000
     
     # Test negative withdrawal
     assert atm.withdraw("user1", -50) == False
-    assert atm.get_balance("user1") == 1300
+    assert atm.get_balance("user1") == 1000
     
     # Test transaction history
     history = atm.get_transactions("user1")
-    assert len(history) == 2
+    assert len(history) == 2  # Deposit and withdrawal
     assert history[0]["type"] == "deposit"
     assert history[0]["amount"] == 500
     assert history[1]["type"] == "withdrawal"
-    assert history[1]["amount"] == 200
+    assert history[1]["amount"] == 500
     
     # Test persistence
     with open(DATA_FILE, 'r') as file:
         data = json.loads(file.read())
     assert "user1" in data
-    assert data["user1"]["balance"] == 1300
+    assert data["user1"]["balance"] == 1000
     
     # Create a new instance and verify data is loaded
     atm2 = ATM()
-    assert atm2.get_balance("user1") == 1300
+    assert atm2.get_balance("user1") == 1000
     
     print("All tests passed!")
 
