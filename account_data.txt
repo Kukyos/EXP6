@@ -1,0 +1,32 @@
+{
+  "user1": {
+    "balance": 1300,
+    "transactions": [
+      {
+        "type": "deposit",
+        "amount": 500,
+        "timestamp": "2025-03-27T22:11:05.758257"
+      },
+      {
+        "type": "withdrawal",
+        "amount": 200,
+        "timestamp": "2025-03-27T22:11:05.758658"
+      }
+    ]
+  },
+  "JJ": {
+    "balance": 1000.0,
+    "transactions": [
+      {
+        "type": "deposit",
+        "amount": 100.0,
+        "timestamp": "2025-03-27T22:11:40.621303"
+      },
+      {
+        "type": "withdrawal",
+        "amount": 100.0,
+        "timestamp": "2025-03-27T22:11:47.204147"
+      }
+    ]
+  }
+}
