@@ -1,66 +1,16 @@
-# ATM Management System
+# ATM System
 
-A collaborative project to manage ATM transactions and balances.
+A simple ATM system that stores account data in a text file.
 
-## Features
-- Account balance management
-- Deposit and withdrawal operations
-- Transaction history tracking
-- Secure operation validation
+## Core Functionality
+- **Account Management**: Create and track multiple user accounts
+- **Balance Operations**: Deposit and withdraw funds with validation
+- **Transaction History**: Record and display all account activities
+- **Data Persistence**: Store all data in a JSON text file (accounts.txt)
+- **Withdrawal Limits**: Minimum withdrawal amount of Rs 500
 
-## Setup
-
-1. Clone the repository:
-```bash
-git clone https://github.com/your-username/atm-system.git
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Run tests:
-```bash
-npm test
-```
-
-4. Start the application:
-```bash
-npm start
-```
-
-## Branching Strategy
-
-- `main`: Production-ready code
-- `develop`: Development branch
-- `feature/*`: New features
-- `bugfix/*`: Bug fixes
-- `release/*`: Release preparation
-
-## Contributing
-
-1. Create a new feature branch from develop:
-```bash
-git checkout -b feature/your-feature-name
-```
-
-2. Make your changes and commit:
-```bash
-git commit -m "feat: your feature description"
-```
-
-3. Push and create a pull request:
-```bash
-git push origin feature/your-feature-name
-```
-
-## Git Hooks
-
-Pre-commit hooks are set up to:
-- Check code formatting
-- Run linting
-
-## Submodules
-
-External dependencies are managed in the `external/` directory.
+## Implementation
+The system uses a Python-based implementation with three main components:
+- Core ATM logic (atm.py)
+- Command-line interface (main.py)
+- Validation tests (test_atm.py)
