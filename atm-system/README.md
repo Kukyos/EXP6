@@ -2,6 +2,12 @@
 
 A collaborative project to manage ATM transactions and balances.
 
+## Features
+- Account balance management
+- Deposit and withdrawal operations
+- Transaction history tracking
+- Secure operation validation
+
 ## Setup
 
 1. Clone the repository:
@@ -12,6 +18,16 @@ git clone https://github.com/your-username/atm-system.git
 2. Install dependencies:
 ```bash
 npm install
+```
+
+3. Run tests:
+```bash
+npm test
+```
+
+4. Start the application:
+```bash
+npm start
 ```
 
 ## Branching Strategy
